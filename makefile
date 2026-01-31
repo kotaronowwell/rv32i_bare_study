@@ -1,5 +1,5 @@
 CC = riscv-none-elf-gcc
-CFLAGS = -march=rv32i -mabi=ilp32 -nostdlib -nostartfiles -ffreestanding
+CFLAGS = -march=rv32i -mabi=ilp32 -nostdlib -nostartfiles -g -O0
 
 all: firmware.elf
 

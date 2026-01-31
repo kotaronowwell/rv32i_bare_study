@@ -1,0 +1,44 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"[N/A - Select Kit]"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task"
+		},
+		{
+			"label": "qemu-rv32",
+			"type": "shell",
+			"command": "qemu-system-riscv32",
+			"args": [
+				"-machine", "virt",
+				"-nographic",
+				"-bios", "none",
+				"-kernel", "firmware.elf",
+				"-S",
+				"-gdb", "tcp::1234"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "qemu-kill",
+			"type": "shell",
+			"command": "pkill",
+			"args": [
+				"-f",
+				"qemu-system-riscv32"
+			],
+			"problemMatcher": []
+		}
+	]
+}
