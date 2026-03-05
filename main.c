@@ -10,6 +10,7 @@ void puts(const char *s) {
 
 void main(void) {
     puts("Hello RV32I Bare Metal!\n");
+    asm volatile(".word 0xffffffff");
     while (1);
 }
 
