@@ -17,4 +17,6 @@ target_link_options(hello PRIVATE
 target_compile_options(hello PRIVATE
     -Wall
     -Wextra
+    -g3
+    -O0
 )

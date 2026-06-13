@@ -1,17 +1,16 @@
 {
     "name": "riscv-baremetal",
+
     "build": {
         "dockerfile": "Dockerfile"
     },
 
-    "remoteUser": "root",
-
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-vscode.cpptools",
                 "llvm-vs-code-extensions.vscode-clangd",
-                "ms-vscode.cmake-tools",
-                "marus25.cortex-debug"
+                "ms-vscode.cmake-tools"
             ]
         }
     }
