@@ -1,5 +1,7 @@
 {
     "name": "riscv-baremetal",
+    "remoteUser": "riscv",
+    "updateRemoteUserUID": true,
 
     "build": {
         "dockerfile": "Dockerfile"
