@@ -7,9 +7,13 @@
             "type": "cppdbg",
             "request": "launch",
 
-            "program": "${workspaceFolder}/build/hello",
+            "preLaunchTask": "qemu-gdb",
 
-            "cwd": "${workspaceFolder}",
+            "postDebugTask": "stop-qemu-gdb",
+
+            "program": "/workspaces/rv32i_bare_study/build/hello",
+
+            "cwd": "/workspaces/rv32i_bare_study",
 
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/gdb-multiarch",

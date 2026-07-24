@@ -19,9 +19,25 @@
 
             "type": "shell",
 
-            "isBackground": true,
+            "command": "pkill -x qemu-system-riscv32 2>/dev/null || true; nohup qemu-system-riscv32 -machine virt -bios none -kernel build/hello -nographic -S -gdb tcp::1234 >/tmp/rv32i_bare_study_qemu.log 2>&1 &",
 
-            "command": "qemu-system-riscv32 -machine virt -bios none -kernel build/hello -nographic -S -gdb tcp::1234",
+            "options": {
+                "shell": {
+                    "executable": "/bin/bash",
+                    "args": [
+                        "-c"
+                    ]
+                }
+            },
+
+            "problemMatcher": []
+        },
+        {
+            "label": "stop-qemu-gdb",
+
+            "type": "shell",
+
+            "command": "pkill -x qemu-system-riscv32 2>/dev/null || true",
 
             "problemMatcher": []
         }
