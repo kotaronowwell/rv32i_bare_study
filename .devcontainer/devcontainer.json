@@ -1,5 +1,7 @@
 {
     "name": "riscv-baremetal",
+    "remoteUser": "riscv",
+    "updateRemoteUserUID": true,
 
     "build": {
         "dockerfile": "Dockerfile"
@@ -8,6 +10,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-vscode.cpptools-extension-pack",
                 "ms-vscode.cpptools",
                 "llvm-vs-code-extensions.vscode-clangd",
                 "ms-vscode.cmake-tools"

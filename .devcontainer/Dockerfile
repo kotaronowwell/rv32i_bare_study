@@ -1,6 +1,11 @@
 FROM ubuntu:24.04
 
-ENV DEBIAN_FRONTEND=noninteractive
+# Create 'riscv' user
+ARG USERNAME=riscv
+ARG UID=1000
+ARG GID=1000
+
+ARG WORKSPACE=/workspace
 
 RUN apt-get update && apt-get install -y \
     clang \
@@ -16,4 +21,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /workspace
+RUN userdel -r ubuntu
+
+RUN groupadd -g ${GID} ${USERNAME} \
+    && adduser --disabled-password --gecos '' --uid $UID --gid $GID ${USERNAME} \
+    && chsh -s /bin/zsh ${USERNAME} \
+    && mkdir -p ${WORKSPACE} \
+    && chown ${USERNAME} ${WORKSPACE}
+
+WORKDIR ${WORKSPACE}
+USER ${USERNAME}
